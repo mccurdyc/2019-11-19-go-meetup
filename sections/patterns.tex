@@ -160,3 +160,65 @@
   \end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{3. Domain-Driven Design (DDD)}
+
+  \begin{verbatim}
+    main.go
+    pkg/
+      database/ # package database
+        database.go
+      products/ # package products
+        product.go
+        model.go
+        view.go
+        controller.go
+      reviews/ # package reviews
+        review.go
+        model.go
+        view.go
+        controller.go
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{3. Domain-Driven Design (DDD)}
+
+  Challenges:
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{3. Domain-Driven Design (DDD)}
+
+  Benefits:
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{More Patterns}
+
+  \begin{itemize}
+    \item Hexagonal architecture
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{Additional Notes}
+
+  \begin{itemize}
+    \item \texttt{cmd/}
+      \begin{itemize}
+        \item Multiple binaries / ``entrypoints''
+      \end{itemize}
+    \item \texttt{internal/} vs \texttt{pkg/}
+    \item Where do I put everything else?
+      \begin{itemize}
+        \item \texttt{Dockerfile}, \texttt{README.md}, dotfiles, etc.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
