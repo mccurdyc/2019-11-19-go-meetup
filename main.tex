@@ -16,6 +16,17 @@
 \usepackage{adjustbox}
 \usepackage{array}
 \usepackage{color, colortbl}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\setlist[itemize]{label=\textbullet}
 
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.9}
@@ -33,7 +44,6 @@
 % \newcommand{\cmarkhide}{{\color{kapfhammerDarkGrey}\ding{51}}}
 % \newcommand{\xmarkhide}{{\color{kapfhammerDarkGrey}{\ding{55}}}}
 \newcommand\sql[1]{{\tt \small #1}}
-
 
 %% Rotated table column type
 \newcolumntype{R}[2]{%
@@ -68,21 +78,21 @@
 \setbeamercolor{subtitle}{fg=solarizedBlue}
 % \setbeamercolor{subtitle}{fg=solarizedViolet}
 \setbeamercolor{frametitle}{fg=solarizedBase02}
-\setbeamercolor{framesubtitle}{fg=solarizedBase02}
+\setbeamercolor{framesubtitle}{fg=solarizedOrange}
 % \setbeamercolor{frametitle}{fg=kapfhammerDarkGrey}
 % \setbeamercolor{framesubtitle}{fg=kapfhammerDarkGrey}
 \setbeamercolor{author}{fg=solarizedRebase00}
 \setbeamercolor{institute}{fg=solarizedRebase00}
 \setbeamercolor{date}{fg=solarizedRebase00}
 
+\setbeamercolor{normal text}{fg=solarizedBase02, bg=solarizedBase3}
+
 \addtobeamertemplate{frametitle}{\vskip.1in}{}
 
 \graphicspath{ {images/} }
 
-\usepackage{listings}
-
-\title{\fontsize{25}{25}\selectfont{Go Project Structure}}
-\subtitle{Idioms and suggestions from the community}
+\title{\fontsize{25}{25}\selectfont{Project Structure}}
+\subtitle{Idioms and suggestions from the Go community}
 
 \author[McCurdy]{Colton J. McCurdy\\
 {\small \href{https://twitter.com/McCurdyColton}{\textcolor{solarizedOrange}{\fontsize{15}{30}{\faTwitter\,}\small McCurdyColton}}}}
@@ -95,7 +105,28 @@
   \titlepage
 \end{frame}
 
-\section{Credit Where Credit's Due}
+\section{Credit Due}
 \input{sections/credits.tex}
+
+\section{Motivation}
+\input{sections/motivation.tex}
+
+\section{Consider}
+\input{sections/consider.tex}
+
+\section{Remember}
+\input{sections/remember.tex}
+
+\section{Now Go Stuff}
+\input{sections/now-go.tex}
+
+\section{Design Patterns}
+\input{sections/patterns.tex}
+
+\section{General Framework in Go}
+\input{sections/framework.tex}
+
+\section{Standardization}
+\input{sections/standarization.tex}
 
 \end{document}

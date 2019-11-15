@@ -1,0 +1,85 @@
+%!TEX root=main.tex
+% mainfile: ../main.tex
+
+{
+  \setbeamercolor{background canvas}{bg=solarizedBase02}
+  \setbeamercolor{frametitle}{fg=solarizedOrange}
+  \color{solarizedBase2}
+\begin{frame}[fragile]
+  \frametitle{Go Background}
+
+  \begin{verbatim}
+    pkg/
+      a/
+        a.go # package a
+      b/
+        b.go # package b
+  \end{verbatim}
+
+  \begin{verbatim}
+  $ cat pkg/a/a.go
+  package a
+  import "b"
+  \end{verbatim}
+
+  \begin{verbatim}
+  $ cat pkg/b/b.go
+  package b
+  import "a"
+  \end{verbatim}
+
+\end{frame}
+}
+
+{
+  \setbeamercolor{background canvas}{bg=solarizedBase02}
+  \setbeamercolor{frametitle}{fg=solarizedOrange}
+  \color{solarizedBase2}
+\begin{frame}[fragile]
+  \frametitle{Go Background}
+
+  \begin{verbatim}
+    pkg/
+      a/
+        a.go # package a
+      b/
+        b.go # package b
+  \end{verbatim}
+
+  \begin{verbatim}
+  $ cat pkg/a/a.go
+  package a
+  import "b"
+  \end{verbatim}
+
+  \begin{verbatim}
+  $ cat pkg/b/b.go
+  package b
+  import "a" <---- "import cycle not allowed"
+  \end{verbatim}
+
+\end{frame}
+}
+
+{
+  \setbeamercolor{background canvas}{bg=solarizedBase02}
+  \setbeamercolor{frametitle}{fg=solarizedOrange}
+  \color{solarizedBase2}
+\begin{frame}
+  \frametitle{Go Background}
+
+  \begin{itemize}
+    \item Appreciate the ``import cycle not allowed'' error
+    \item If you're fighting this error, consider a redesign or refactor
+    \item Dependency management --- packages are dependencies --- is important
+  \end{itemize}
+
+  \vspace{1em}
+  \small
+  Rob Pike comparing compilation times from C++ to Go
+
+  \vspace{1em}
+  ``\dots turns minutes into seconds, coffee breaks into interactive builds''
+  - \href{https://talks.golang.org/2012/splash.article}{Rob Pike at SPLASH 2012}
+\end{frame}
+}

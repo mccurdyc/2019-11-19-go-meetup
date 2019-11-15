@@ -1,0 +1,162 @@
+%!TEX root=main.tex
+% mainfile: ../main.tex
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \begin{itemize}
+    \item No \textbf{wrong} ``solution'', just possibly better ``solutions''
+    \pause
+    \item ``Bad'' abstractions are worse than no abstractions
+    \pause
+    \item It's important to understand the flow of requests
+    \pause
+    \item \textbf{Part of learning is discovering what doesn't work}
+  \end{itemize}
+\end{frame}
+
+{
+  \setbeamercolor{background canvas}{bg=solarizedBase02}
+  \setbeamercolor{frametitle}{fg=solarizedOrange}
+  \color{solarizedBase2}
+\begin{frame}[fragile]
+  \frametitle{Abstractions}
+  \framesubtitle{What are we trying to solve with abstractions?}
+
+  \begin{itemize}
+    \item Efficient mental model building
+    \item Readability
+    \item Reduce code duplication
+    \item \textbf{Ultimately, speed}
+  \end{itemize}
+\end{frame}
+}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
+
+  \begin{itemize}
+    \item No package abstractions
+    \pause
+    \item Everything is in \texttt{package main}
+    \begin{itemize}
+      \item No ``import cycle'' errors
+    \end{itemize}
+    \pause
+    \item This is a great starting place
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
+
+  \begin{verbatim}
+    main.go
+    server.go
+    database.go
+    thing1.go # model, view and controller code
+    thing2.go # model, view and controller code
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
+
+  A few open-source examples
+  \begin{itemize}
+    \item \url{github.com/Jguer/yay}
+    \item \url{github.com/gorilla/mux}
+    \item \url{github.com/sirupsen/logrus}
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
+
+  Challenges:
+  \begin{itemize}
+    \pause
+    \item Mental model construction is difficult from project structure alone
+    \begin{itemize}
+      \item Ineffective display of ``grouping'', layering and request flow
+    \end{itemize}
+    \pause
+    \item Readability
+  \end{itemize}
+
+  \vspace{1em}
+  \centering
+  \pause
+  These become more true as the \textbf{project grows in size}.
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
+
+  Benefits:
+  \begin{itemize}
+    \pause
+    \item Immediately tackling the problem(s) at hand
+    \pause
+    \item Gives abstractions time to emerge, if they exist
+    \pause
+    \item Easy to build abstractions from this point
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{2. Model-View-Controller (MVC)}
+
+  \begin{verbatim}
+    main.go
+    pkg/
+      handlers/ # package handlers
+        thing1.go
+        thing2.go
+      database/ # package database
+        database.go
+      models/ # package models
+        thing1.go
+        thing2.go
+      responses/ # package responses
+        thing1.go
+        thing2.go
+  \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{2. Model-View-Controller (MVC)}
+
+  Challenges:
+  \begin{itemize}
+    \item Code duplication to avoid circular dependencies
+    \begin{itemize}
+      \item You will most likely have a model and response for the same type that are tightly-coupled
+      \item Controller calls models and ``converts'' to a view
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
+  \framesubtitle{2. Model-View-Controller (MVC)}
+
+  Benefits:
+  \begin{itemize}
+    \item Centralized logic for interacting with a data store
+    \begin{itemize}
+      \item Easier to swap technologies (e.g., PostgreSQL to MySQL), if you have abstracted the technology away from the model
+
+    \end{itemize}
+  \end{itemize}
+
+\end{frame}
