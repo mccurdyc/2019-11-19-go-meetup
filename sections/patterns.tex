@@ -33,6 +33,27 @@
 
 \begin{frame}[fragile]
   \frametitle{Patterns}
+  \framesubtitle{Where do I put \dots}
+
+  \begin{itemize}
+    \item{\textbf{No \texttt{tests/}}}
+    \begin{itemize}
+      \item \texttt{name\_test.go} files remain in the package with the related \texttt{name.go} file
+    \end{itemize}
+    \item \texttt{cmd/}
+      \begin{itemize}
+        \item Multiple binaries / ``entrypoints''
+      \end{itemize}
+    \item \texttt{internal/} vs \texttt{pkg/}
+    \item Where do I put everything else?
+      \begin{itemize}
+        \item \texttt{Dockerfile}, \texttt{README.md}, dotfiles, etc.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Patterns}
   \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
 
   \begin{itemize}
@@ -56,7 +77,9 @@
     server.go
     database.go
     thing1.go # model, view and controller code
+    thing1_test.go
     thing2.go # model, view and controller code
+    thing2_test.go
   \end{verbatim}
 \end{frame}
 
@@ -197,28 +220,3 @@
   Benefits:
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Patterns}
-  \framesubtitle{More Patterns}
-
-  \begin{itemize}
-    \item Hexagonal architecture
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Patterns}
-  \framesubtitle{Additional Notes}
-
-  \begin{itemize}
-    \item \texttt{cmd/}
-      \begin{itemize}
-        \item Multiple binaries / ``entrypoints''
-      \end{itemize}
-    \item \texttt{internal/} vs \texttt{pkg/}
-    \item Where do I put everything else?
-      \begin{itemize}
-        \item \texttt{Dockerfile}, \texttt{README.md}, dotfiles, etc.
-      \end{itemize}
-  \end{itemize}
-\end{frame}
