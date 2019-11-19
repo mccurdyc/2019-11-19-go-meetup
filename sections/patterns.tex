@@ -4,32 +4,15 @@
 \begin{frame}[fragile]
   \frametitle{Patterns}
   \begin{itemize}
-    \item No \textbf{wrong} ``solution'', just possibly better ``solutions''
+    \item No wrong ``solution'', just possibly better ``solutions''
     \pause
     \item ``Bad'' abstractions are worse than no abstractions
     \pause
-    \item It's important to understand the flow of requests
+    \item \textbf{Understand the flow of requests through packages}
     \pause
     \item \textbf{Part of learning is discovering what doesn't work}
   \end{itemize}
 \end{frame}
-
-{
-  \setbeamercolor{background canvas}{bg=solarizedBase02}
-  \setbeamercolor{frametitle}{fg=solarizedOrange}
-  \color{solarizedBase2}
-\begin{frame}[fragile]
-  \frametitle{Abstractions}
-  \framesubtitle{What are we trying to solve with abstractions?}
-
-  \begin{itemize}
-    \item Efficient mental model building
-    \item Readability
-    \item Reduce code duplication
-    \item \textbf{Ultimately, speed}
-  \end{itemize}
-\end{frame}
-}
 
 \begin{frame}[fragile]
   \frametitle{Patterns}
@@ -56,19 +39,40 @@
   \end{itemize}
 \end{frame}
 
+{
+  \setbeamercolor{background canvas}{bg=solarizedBase02}
+  \setbeamercolor{frametitle}{fg=solarizedOrange}
+  \color{solarizedBase2}
+\begin{frame}[fragile]
+  \frametitle{Abstractions}
+  \framesubtitle{What are we trying to solve with abstractions?}
+
+  \begin{itemize}
+    \item Efficient mental model building
+    \item Readability
+    \item Reduce maintenance costs
+    \item \textbf{Ultimately, speed}
+  \end{itemize}
+
+  \vspace{1em}
+  Don't abstract just to abstract
+\end{frame}
+}
+
+
 \begin{frame}[fragile]
   \frametitle{Patterns}
   \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
 
   \begin{itemize}
+    \item This is a great starting place
+    \pause
     \item No package abstractions
     \pause
     \item Everything is in \texttt{package main}
     \begin{itemize}
-      \item No ``import cycle'' errors
+    \item No ``import cycle'' errors
     \end{itemize}
-    \pause
-    \item This is a great starting place
   \end{itemize}
 \end{frame}
 
@@ -85,19 +89,6 @@
     thing2.go # model, view and controller code
     thing2_test.go
   \end{verbatim}
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Patterns}
-  \framesubtitle{1. Flat Structure (i.e., ``abstractionless'')}
-
-  A few open-source examples
-  \begin{itemize}
-    \item \url{github.com/Jguer/yay}
-    \item \url{github.com/gorilla/mux}
-    \item \url{github.com/sirupsen/logrus}
-  \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -131,9 +122,9 @@
     \pause
     \item Immediately tackling the problem(s) at hand
     \pause
-    \item Gives abstractions time to emerge, if they exist
+    \item Gives abstractions time to emerge; if they exist
     \pause
-    \item Easy to build abstractions from this point
+    \item Easy to identify and build abstractions from this point
   \end{itemize}
 
 \end{frame}
@@ -166,6 +157,11 @@
   Challenges:
   \begin{itemize}
     \pause
+    \item To do well, requires you to use Go \texttt{interfaces}
+    \begin{itemize}
+      \item If you are new to Go, this could be a challenge
+    \end{itemize}
+    \pause
     \item Code duplication to avoid circular dependencies
     \begin{itemize}
       \item You will most likely have a model and response for the same type that are tightly-coupled
@@ -197,10 +193,9 @@
 
 \begin{frame}[fragile]
   \frametitle{Patterns}
-  \framesubtitle{Addition Patterns}
+  \framesubtitle{Addition Patterns (I'm still learning how to apply these)}
 
   \begin{itemize}
-    \pause
     \item Domain-driven design (DDD)
       \begin{itemize}
         \item Similar goals to micro-services
