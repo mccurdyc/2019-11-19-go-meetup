@@ -36,8 +36,9 @@
   \framesubtitle{Where do I put \dots}
 
   \begin{itemize}
-    \item{\textbf{No \texttt{tests/}}}
+    \item{Tests}
     \begin{itemize}
+      \item \textbf{No \texttt{tests/}}
       \item \texttt{name\_test.go} files remain in the package with the related \texttt{name.go} file
     \end{itemize}
     \item \texttt{cmd/}
@@ -45,6 +46,9 @@
         \item Multiple binaries / ``entrypoints''
       \end{itemize}
     \item \texttt{internal/} vs \texttt{pkg/}
+      \begin{itemize}
+        \item \texttt{internal/} - \href{https://blog.gopheracademy.com/advent-2016/go-and-package-focused-design/}{``ensures that changes to the API of internal packages will never break an external application''}
+      \end{itemize}
     \item Where do I put everything else?
       \begin{itemize}
         \item \texttt{Dockerfile}, \texttt{README.md}, dotfiles, etc.
@@ -161,11 +165,14 @@
 
   Challenges:
   \begin{itemize}
+    \pause
     \item Code duplication to avoid circular dependencies
     \begin{itemize}
       \item You will most likely have a model and response for the same type that are tightly-coupled
-      \item Controller calls models and ``converts'' to a view
+      \item Controller calls models and builds a view
     \end{itemize}
+    \pause
+    \item Related ``things'' are ``\textbf{far}''
   \end{itemize}
 \end{frame}
 
@@ -175,48 +182,33 @@
 
   Benefits:
   \begin{itemize}
+    \pause
     \item Centralized logic for interacting with a data store
     \begin{itemize}
       \item Easier to swap technologies (e.g., PostgreSQL to MySQL), if you have abstracted the technology away from the model
-
     \end{itemize}
+    \pause
+    \item Standard outside of Go
+    \pause
+    \item Related ``things'' are ``\textbf{close}''
   \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Patterns}
-  \framesubtitle{3. Domain-Driven Design (DDD)}
+  \framesubtitle{Addition Patterns}
 
-  \begin{verbatim}
-    main.go
-    pkg/
-      database/ # package database
-        database.go
-      products/ # package products
-        product.go
-        model.go
-        view.go
-        controller.go
-      reviews/ # package reviews
-        review.go
-        model.go
-        view.go
-        controller.go
-  \end{verbatim}
+  \begin{itemize}
+    \pause
+    \item Domain-driven design (DDD)
+      \begin{itemize}
+        \item Similar goals to micro-services
+        \item Separating parts of the business
+        \item Domain-specific logic (i.e., for this service, let's do retries)
+      \end{itemize}
+    \item Hexagonal architecture
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Patterns}
-  \framesubtitle{3. Domain-Driven Design (DDD)}
-
-  Challenges:
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Patterns}
-  \framesubtitle{3. Domain-Driven Design (DDD)}
-
-  Benefits:
-\end{frame}
 
